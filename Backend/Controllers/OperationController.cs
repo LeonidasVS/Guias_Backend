@@ -9,27 +9,27 @@ namespace Backend.Controllers
     public class OperationController : ControllerBase
     {
         [HttpGet]
-        public decimal Get(decimal a, decimal c)
+        public decimal Get(decimal a, decimal b)
         {
-            return a + c;   
+            return a + b;   
         }
 
         [HttpPost]
-        public decimal add(decimal a, decimal c)
+        public decimal add(Numbers c)
         {
-            return a - c;
+            return c.A-c.B;
         }
 
         [HttpPut]
-        public decimal multiplicar(decimal a, decimal c)
+        public decimal multiplicar(decimal a, decimal b)
         {
-            return a * c;
+            return a * b;
         }
 
         [HttpDelete]
-        public decimal Nmas1(decimal a, decimal c)
+        public decimal Nmas1(decimal a, decimal b)
         {
-            return a * (a * c);
+            return a * (a * b);
         }
     }
 }
