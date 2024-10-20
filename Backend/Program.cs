@@ -1,7 +1,15 @@
+using Backend.Servicios;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+//builder.Services.AddSingleton<IPersonaServices, PersonaService2>();
+builder.Services.AddKeyedSingleton<IPersonaServices, PersonaService>("personaServices");
+builder.Services.AddKeyedSingleton<IPersonaServices, PersonaService2>("personaServices2");
 
+builder.Services.AddKeyedSingleton<IRandomServices, RandomService>("randomSingleton");
+builder.Services.AddKeyedScoped<IRandomServices, RandomService>("randomScoped");
+builder.Services.AddKeyedTransient<IRandomServices, RandomService>("randomTransient");
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
